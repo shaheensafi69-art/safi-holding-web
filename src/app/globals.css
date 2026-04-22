@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* اگر تیلوند کار نکرد، این استایل‌های پایه مشکل را حل می‌کنند */
+body {
+  background-color: #050505 !important;
+  color: white !important;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #C5A028;
+}
