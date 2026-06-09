@@ -11,17 +11,16 @@ export default function MarketingLayout({
       flexDirection: 'column',
       alignItems: 'center',
       width: '100%',
-      minHeight: '80vh', // ارتفاع مناسب برای محتوا
+      minHeight: '100vh', 
+      margin: 0,
+      padding: 0
     }}>
-      {/* این بخش Container اصلی است که 
-          باعث می‌شود صفحات دیگر مثل About هم 
-          در وسط قرار بگیرند و پخش نشوند
-      */}
+      {/* Container اصلی حالا تمام عرض مانیتور را می‌گیرد */}
       <div style={{
         width: '100%',
-        maxWidth: '1200px',
-        padding: '0 20px',
-        boxSizing: 'border-box'
+        margin: 0,
+        padding: 0,
+        // maxWidth: '1200px' -> به طور کامل حذف شد تا نیم صفحه نشود
       }}>
         {children}
       </div>
