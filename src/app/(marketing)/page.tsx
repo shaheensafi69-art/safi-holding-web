@@ -4,78 +4,104 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function HomePage() {
-  // پالت رنگی اختصاصی و لوکس (فقط مشکی و طیف‌های طلایی)
+  // پالت رنگی اختصاصی، مدرن و فوق‌العاده لوکس
   const theme = {
     black: '#000000',
-    darkBg: '#050505',
+    darkBg: '#080808',
+    cardBg: '#0c0c0c',
     goldLight: '#FCE792',
     goldMid: '#D4AF37',
     goldDark: '#8A6D1C',
-    goldGlow: 'rgba(212, 175, 55, 0.15)',
+    goldGlow: 'rgba(212, 175, 55, 0.2)',
+    borderGlow: 'rgba(212, 175, 55, 0.3)',
   };
 
-  // استایل دکمه‌های ۳ بعدی
+  // استایل دکمه‌های ۳ بعدی پیشرفته
   const btn3DStyle = {
-    background: `linear-gradient(145deg, ${theme.darkBg}, ${theme.black})`,
+    background: `linear-gradient(135deg, #1a1608 0%, ${theme.black} 100%)`,
     border: `1px solid ${theme.goldMid}`,
     color: theme.goldLight,
-    padding: '16px 45px',
-    borderRadius: '8px',
+    padding: '18px 50px',
+    borderRadius: '12px',
     fontSize: '14px',
-    fontWeight: 'bold',
+    fontWeight: '800',
     textTransform: 'uppercase' as const,
-    letterSpacing: '2px',
+    letterSpacing: '2.5px',
     cursor: 'pointer',
-    boxShadow: `0 10px 20px ${theme.goldGlow}, inset 0 0 10px rgba(0,0,0,1)`,
-    transition: 'all 0.3s ease',
+    boxShadow: `0 15px 35px ${theme.goldGlow}, inset 0 0 15px rgba(212,175,55,0.1)`,
+    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
     textDecoration: 'none',
     display: 'inline-block',
   };
 
-  // کامپوننت کارت سه‌بعدی (3D Card) با دیزاین اختصاصی
+  // کامپوننت کارت سه‌بعدی (3D Card) با دیزاین بسیار شیک و عمق‌دار
   const ThreeDCard = ({ title, desc, link, imageStr, alt }: any) => (
     <motion.div
-      whileHover={{ scale: 1.05, rotateY: 8, rotateX: -8, zIndex: 10 }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      whileHover={{ scale: 1.03, rotateY: 5, rotateX: -5, y: -8 }}
+      transition={{ type: "spring", stiffness: 350, damping: 20 }}
       style={{
         backgroundColor: theme.black,
-        borderRadius: '16px',
-        padding: '1px', // ایجاد حاشیه طلایی ظریف
-        background: `linear-gradient(135deg, ${theme.goldDark}, ${theme.black} 60%, ${theme.goldMid})`,
-        boxShadow: `0 15px 35px rgba(0,0,0,0.9), 0 0 20px ${theme.goldGlow}`,
+        borderRadius: '20px',
+        padding: '2px', // ایجاد حاشیه گرادیانت طلایی خیره‌کننده
+        background: `linear-gradient(145deg, ${theme.goldMid}, rgba(255,255,255,0.05) 40%, ${theme.goldDark})`,
+        boxShadow: `0 20px 40px rgba(0,0,0,0.8), 0 0 25px ${theme.goldGlow}`,
         perspective: '1000px',
         transformStyle: 'preserve-3d',
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        minHeight: '420px',
+        minHeight: '440px',
       }}
     >
       <div style={{
-        backgroundColor: theme.darkBg,
-        borderRadius: '15px',
+        backgroundColor: theme.cardBg,
+        borderRadius: '18px',
         height: '100%',
-        padding: '40px 25px',
+        padding: '45px 30px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        transform: 'translateZ(30px)', // برجسته کردن محتوای روی کارت
-        border: '1px solid rgba(255,255,255,0.02)'
+        transform: 'translateZ(25px)',
+        border: '1px solid rgba(255,255,255,0.03)'
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ height: '70px', marginBottom: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={imageStr} alt={alt} style={{ maxHeight: '100%', maxWidth: '100%', filter: `drop-shadow(0 5px 15px ${theme.goldGlow})` }} />
+          <div style={{ 
+            height: '75px', 
+            marginBottom: '30px', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            filter: `drop-shadow(0 8px 20px ${theme.goldGlow})`
+          }}>
+            <img src={imageStr} alt={alt} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
           </div>
-          <h3 style={{ color: theme.goldMid, fontSize: '24px', fontWeight: '900', marginBottom: '15px', textAlign: 'center', letterSpacing: '1px' }}>
+          <h3 style={{ 
+            color: theme.goldLight, 
+            fontSize: '22px', 
+            fontWeight: '900', 
+            marginBottom: '15px', 
+            textAlign: 'center', 
+            letterSpacing: '1px',
+            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
+          }}>
             {title}
           </h3>
-          <p style={{ color: '#aaa', fontSize: '14px', lineHeight: '1.9', textAlign: 'center' }}>
+          <p style={{ color: '#999', fontSize: '14px', lineHeight: '1.8', textAlign: 'center' }}>
             {desc}
           </p>
         </div>
-        <div style={{ marginTop: '30px', textAlign: 'center' }}>
+        
+        <div style={{ marginTop: '35px', textAlign: 'center' }}>
           <a href={link} target="_blank" rel="noopener noreferrer" style={{
-            color: theme.goldLight, fontWeight: 'bold', textDecoration: 'none', fontSize: '13px', borderBottom: `1px solid ${theme.goldDark}`, paddingBottom: '4px', letterSpacing: '1px', transition: '0.3s'
+            color: theme.goldMid, 
+            fontWeight: '700', 
+            textDecoration: 'none', 
+            fontSize: '12px', 
+            letterSpacing: '2px', 
+            borderBottom: `2px solid ${theme.goldDark}`, 
+            paddingBottom: '6px', 
+            transition: 'all 0.3s ease',
+            display: 'inline-block'
           }}>
             ENTER PORTAL ➔
           </a>
@@ -85,67 +111,84 @@ export default function HomePage() {
   );
 
   return (
-    // بدنه اصلی - بدون هدر و فوتر، عرض 100 درصد برای تمام صفحه شدن
     <main style={{ 
       width: '100%', 
       backgroundColor: theme.black, 
       color: '#fff', 
-      overflowX: 'hidden',
+      overflowX: 'hidden', // فیکس کامل اسکرول افقی
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center'
+      alignItems: 'center',
+      position: 'relative'
     }}>
 
       {/* --- HERO SECTION 3D --- */}
       <section style={{
         width: '100%', 
-        minHeight: '90vh', 
+        minHeight: '92vh', 
         display: 'flex', 
         flexDirection: 'column', 
         justifyContent: 'center', 
         alignItems: 'center',
         position: 'relative', 
         perspective: '1200px', 
-        overflow: 'hidden',
-        padding: '40px 5%'
+        overflow: 'hidden', // جلوگیری از بیرون زدن انیمیشن پس‌زمینه
+        padding: '80px 5%'
       }}>
-        {/* پس‌زمینه کهکشانی طلایی - بدون اسکرول افقی */}
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0 }}>
+        {/* پس‌زمینه کهکشانی و نورپردازی لوکس */}
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
           <motion.div 
-            animate={{ rotateZ: 360, scale: [1, 1.2, 1] }}
-            transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
+            animate={{ rotateZ: 360, scale: [1, 1.15, 1] }}
+            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
             style={{
-              position: 'absolute', width: '150%', height: '150%', top: '-25%', left: '-25%',
-              background: `radial-gradient(circle at 50% 50%, #110d05 0%, ${theme.black} 60%)`,
+              position: 'absolute', width: '140%', height: '140%', top: '-20%', left: '-20%',
+              background: `radial-gradient(circle at 50% 50%, #161105 0%, ${theme.black} 65%)`,
             }}
           />
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: `radial-gradient(${theme.goldDark} 1px, transparent 1px)`, backgroundSize: '50px 50px', opacity: 0.1 }} />
+          <div style={{ position: 'absolute', inset: 0, backgroundImage: `radial-gradient(${theme.goldDark} 1px, transparent 1px)`, backgroundSize: '60px 60px', opacity: 0.08 }} />
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, rotateX: 20, y: 50 }}
+          initial={{ opacity: 0, rotateX: 15, y: 40 }}
           animate={{ opacity: 1, rotateX: 0, y: 0 }}
           transition={{ duration: 1.2, type: 'spring' }}
           style={{ position: 'relative', zIndex: 2, textAlign: 'center', width: '100%', maxWidth: '1200px', transformStyle: 'preserve-3d' }}
         >
-          <motion.div whileHover={{ scale: 1.02 }} style={{ cursor: 'default' }}>
+          <motion.div whileHover={{ scale: 1.01 }} style={{ cursor: 'default' }}>
+            <span style={{ 
+              color: theme.goldMid, 
+              fontWeight: '700', 
+              fontSize: '13px', 
+              letterSpacing: '6px', 
+              textTransform: 'uppercase', 
+              display: 'inline-block', 
+              marginBottom: '20px',
+              textShadow: `0 0 15px ${theme.goldGlow}`
+            }}>
+              Premier Global Holding
+            </span>
+            
             <h1 style={{ 
-              fontSize: 'clamp(40px, 7vw, 90px)', // متن بسیار بزرگ و واکنش‌گرا
+              fontSize: 'clamp(38px, 6.5vw, 85px)', 
               fontWeight: '900', 
               margin: '0 0 25px 0',
               lineHeight: '1.1',
               background: `linear-gradient(to right, ${theme.goldMid}, ${theme.goldLight}, ${theme.goldMid})`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              filter: `drop-shadow(0px 10px 30px rgba(212,175,55,0.4))`,
-              transform: 'translateZ(50px)'
+              filter: `drop-shadow(0px 15px 35px rgba(212,175,55,0.3))`,
+              transform: 'translateZ(40px)'
             }}>
               SAFI INTERNATIONAL<br/>CAPITAL LTD
             </h1>
           </motion.div>
           
           <p style={{ 
-            color: '#bbb', fontSize: 'clamp(16px, 2vw, 22px)', maxWidth: '850px', margin: '0 auto 50px auto', lineHeight: '1.8',
+            color: '#aaa', 
+            fontSize: 'clamp(15px, 1.8vw, 20px)', 
+            maxWidth: '800px', 
+            margin: '0 auto 45px auto', 
+            lineHeight: '1.9',
             transform: 'translateZ(20px)'
           }}>
             A premier global investment & technology holding company.<br/>
@@ -154,7 +197,7 @@ export default function HomePage() {
 
           <motion.a 
             href="#ecosystem"
-            whileHover={{ scale: 1.05, boxShadow: `0 0 30px ${theme.goldDark}` }}
+            whileHover={{ scale: 1.05, boxShadow: `0 0 40px ${theme.goldMid}` }}
             whileTap={{ scale: 0.95 }}
             style={{ ...btn3DStyle, transform: 'translateZ(30px)' }}
           >
@@ -166,31 +209,37 @@ export default function HomePage() {
       {/* --- ECOSYSTEM SECTION 3D GRID --- */}
       <section id="ecosystem" style={{
         width: '100%', 
-        padding: '120px 5%', 
+        padding: '140px 5%', 
         backgroundColor: theme.black, 
         position: 'relative', 
         zIndex: 3,
-        borderTop: `1px solid rgba(212, 175, 55, 0.1)`, 
-        boxShadow: `0 -20px 50px rgba(0,0,0,1)`
+        borderTop: `1px solid rgba(212, 175, 55, 0.12)`, 
+        boxShadow: `0 -25px 60px rgba(0,0,0,0.9)`,
+        overflow: 'hidden'
       }}>
         
-        <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
           <h2 style={{ 
-            fontSize: 'clamp(30px, 5vw, 55px)', fontWeight: '900', color: theme.goldLight, 
-            textShadow: `0 5px 20px ${theme.goldGlow}`, letterSpacing: '2px'
+            fontSize: 'clamp(28px, 4.5vw, 50px)', 
+            fontWeight: '900', 
+            color: theme.goldLight, 
+            textShadow: `0 5px 25px ${theme.goldGlow}`, 
+            letterSpacing: '2px',
+            marginBottom: '15px'
           }}>
             GLOBAL INFRASTRUCTURE
           </h2>
-          <div style={{ width: '80px', height: '3px', background: theme.goldMid, margin: '20px auto', borderRadius: '2px', boxShadow: `0 0 15px ${theme.goldMid}` }} />
+          <p style={{ color: '#777', fontSize: '14px', letterSpacing: '1px' }}>Explore our elite portfolio of advanced tech & fintech verticals</p>
+          <div style={{ width: '90px', height: '3px', background: `linear-gradient(to right, transparent, ${theme.goldMid}, transparent)`, margin: '25px auto', borderRadius: '2px', boxShadow: `0 0 15px ${theme.goldMid}` }} />
         </div>
 
         {/* گرید تمام‌صفحه و منظم */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '30px', 
+          gap: '35px', 
           width: '100%',
-          maxWidth: '1400px', // این مکس‌ویت فقط برای این است که در مانیتورهای الترا-واید خیلی کش نیاید
+          maxWidth: '1400px', 
           margin: '0 auto',
           perspective: '1500px'
         }}>
@@ -222,35 +271,43 @@ export default function HomePage() {
             imageStr="/safipro.png"
             alt="SafiPro"
           />
+          <ThreeDCard 
+            title="Safi Academy"
+            desc="Advanced educational portal administering professional IT and digital financial certification curricula and institutional pathways."
+            link="https://www.safiacademy.org"
+            imageStr="/safi-academy.png"
+            alt="Safi Academy"
+          />
         </div>
       </section>
 
       {/* --- FOUNDER SECTION 3D --- */}
       <section style={{ 
         width: '100%', 
-        padding: '120px 5%', 
+        padding: '140px 5%', 
         backgroundColor: theme.darkBg, 
-        borderTop: `1px solid rgba(212, 175, 55, 0.05)`, 
+        borderTop: `1px solid rgba(212, 175, 55, 0.08)`, 
         overflow: 'hidden', 
-        perspective: '1000px'
+        perspective: '1000px',
+        position: 'relative'
       }}>
         <div style={{ 
           display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', 
-          gap: '50px', width: '100%', maxWidth: '1400px', margin: '0 auto' 
+          gap: '60px', width: '100%', maxWidth: '1400px', margin: '0 auto' 
         }}>
           
           <motion.div 
-            initial={{ opacity: 0, rotateY: -20, x: -50 }}
+            initial={{ opacity: 0, rotateY: -15, x: -40 }}
             whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            style={{ flex: '1 1 400px', transformStyle: 'preserve-3d' }}
+            style={{ flex: '1 1 420px', transformStyle: 'preserve-3d' }}
           >
-            <h4 style={{ color: theme.goldMid, fontWeight: 'bold', letterSpacing: '5px', fontSize: '13px', marginBottom: '15px' }}>VISION & LEADERSHIP</h4>
-            <h2 style={{ fontSize: 'clamp(45px, 7vw, 75px)', fontWeight: '900', color: theme.goldLight, margin: '0 0 30px 0', lineHeight: '1' }}>
+            <h4 style={{ color: theme.goldMid, fontWeight: '800', letterSpacing: '5px', fontSize: '13px', marginBottom: '20px' }}>VISION & LEADERSHIP</h4>
+            <h2 style={{ fontSize: 'clamp(40px, 6.5vw, 70px)', fontWeight: '900', color: theme.goldLight, margin: '0 0 30px 0', lineHeight: '1.05' }}>
               SHAHEEN<br/>SAFI
             </h2>
-            <p style={{ color: '#bbb', fontSize: '17px', lineHeight: '2', marginBottom: '40px', maxWidth: '550px' }}>
+            <p style={{ color: '#aaa', fontSize: '16px', lineHeight: '2.1', marginBottom: '45px', maxWidth: '540px' }}>
               "Driving financial inclusion and digital innovation across global markets."<br/><br/>
               Explore the strategic blueprint of the Safi Ecosystem, deep-dive into Fintech infrastructures, and discover the future of global digital economies.
             </p>
@@ -265,25 +322,31 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, rotateY: 20, x: 50 }}
+            initial={{ opacity: 0, rotateY: 15, x: 40 }}
             whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            style={{ flex: '1 1 400px', position: 'relative', display: 'flex', justifyContent: 'center' }}
+            style={{ flex: '1 1 420px', position: 'relative', display: 'flex', justifyContent: 'center' }}
           >
-            {/* قاب سه‌بعدی طلایی عکس موسس */}
-            <div style={{ position: 'relative', padding: '20px', width: '100%', maxWidth: '450px' }}>
+            {/* قاب سه‌بعدی طلایی فوق‌العاده شیک عکس موسس */}
+            <div style={{ position: 'relative', padding: '25px', width: '100%', maxWidth: '440px' }}>
               <div style={{ 
                 position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, 
-                border: `2px solid ${theme.goldMid}`, borderRadius: '20px', 
-                transform: 'translateZ(-20px) rotate(-4deg)', boxShadow: `0 0 25px ${theme.goldGlow}` 
+                border: `2px solid ${theme.goldMid}`, borderRadius: '24px', 
+                transform: 'translateZ(-25px) rotate(-3deg)', 
+                boxShadow: `0 0 35px ${theme.goldGlow}`,
+                background: 'linear-gradient(135deg, rgba(212,175,55,0.1), transparent)'
               }} />
               <img 
                 src="/safi.png" 
                 alt="Shaheen Safi" 
                 style={{ 
-                  width: '100%', borderRadius: '15px', position: 'relative', zIndex: 2,
-                  boxShadow: '0 30px 50px rgba(0,0,0,0.9)'
+                  width: '100%', 
+                  borderRadius: '18px', 
+                  position: 'relative', 
+                  zIndex: 2,
+                  boxShadow: '0 35px 60px rgba(0,0,0,0.9)',
+                  border: '1px solid rgba(255,255,255,0.05)'
                 }} 
               />
             </div>

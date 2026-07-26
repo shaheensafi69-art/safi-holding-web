@@ -115,6 +115,7 @@ export default function Footer() {
             <ThreeDLink href="https://www.safipay.net" text="SafiPay NeoBanking" target="_blank" />
             <ThreeDLink href="https://www.safitopup.site" text="Safi TopUp Network" target="_blank" />
             <ThreeDLink href="https://www.safipro.site" text="SafiPro International" target="_blank" />
+            <ThreeDLink href="https://www.safiacademy.org" text="Safi Academy Portal" target="_blank" />
             <ThreeDLink href="https://www.shaheensafi.blog" text="Founder's Technical Blog" target="_blank" />
           </div>
 

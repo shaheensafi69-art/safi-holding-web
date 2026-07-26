@@ -111,7 +111,8 @@ export default function ServicesPage() {
         textAlign: 'center', 
         position: 'relative',
         perspective: '1000px',
-        background: `radial-gradient(circle at top, #0f0a00 0%, ${theme.black} 80%)`
+        background: `radial-gradient(circle at top, #0f0a00 0%, ${theme.black} 80%)`,
+        overflow: 'hidden'
       }}>
         {/* ذرات معلق پس‌زمینه */}
         <div style={{ position: 'absolute', inset: 0, backgroundImage: `radial-gradient(${theme.goldDark} 1px, transparent 1px)`, backgroundSize: '60px 60px', opacity: 0.05 }} />
@@ -158,7 +159,7 @@ export default function ServicesPage() {
             borderRadius: '30px',
             padding: '50px',
             maxWidth: '1100px',
-            margin: '-120px auto 100px auto', // کشیدن باکس به سمت بالا (روی هیرو)
+            margin: '-120px auto 100px auto',
             position: 'relative',
             zIndex: 10,
             backdropFilter: 'blur(20px)',
@@ -194,7 +195,7 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
-      {/* --- 3. THE SERVICES GRID 3D (5 BOXES) --- */}
+      {/* --- 3. THE SERVICES GRID 3D --- */}
       <section style={{ width: '90%', maxWidth: '1400px', margin: '0 auto 150px auto' }}>
         <div style={{ 
           display: 'grid', 
@@ -202,7 +203,7 @@ export default function ServicesPage() {
           gap: '40px' 
         }}>
           
-          {/* 1. Safi AI (اضافه شده جدید) */}
+          {/* 1. Safi AI */}
           <Service3DCard 
             title="Safi AI"
             subtitle="Intelligent Ecosystem"
@@ -262,7 +263,22 @@ export default function ServicesPage() {
             linkText="SHOP SAFIPRO →"
           />
 
-          {/* 5. Shaheen Safi Blog */}
+          {/* 5. Safi Academy */}
+          <Service3DCard 
+            title="Safi Academy"
+            subtitle="Educational Excellence"
+            desc="Advanced educational portal administering professional IT, software development, and digital financial certification curricula."
+            features={[
+              "Professional IT & Development Curricula",
+              "Automated Gamification Benchmarks",
+              "Official Digital Certificate Verification"
+            ]}
+            imageStr="/safi-academy.png"
+            link="https://www.safiacademy.org"
+            linkText="ENTER ACADEMY →"
+          />
+
+          {/* 6. Shaheen Safi Blog */}
           <Service3DCard 
             title="Educational Blog"
             subtitle="Founder's Technical Log"
@@ -272,20 +288,13 @@ export default function ServicesPage() {
               "Investment Strategy Guides",
               "Market Analysis & Tech Reflections"
             ]}
-            imageStr="" // استفاده از ایموجی در کامپوننت اگر خالی باشد
+            imageStr=""
             link="https://www.shaheensafi.blog"
             linkText="READ ARTICLES →"
           />
 
         </div>
       </section>
-
-      {/* یادداشت: در صورتی که از RootLayout استفاده می‌کنید و فوتر گلوبال دارید، 
-          می‌توانید تگ footer زیر را پاک کنید تا دوتا فوتر نیفتد. */}
-      {/* <footer style={{ padding: '60px 5%', textAlign: 'center', borderTop: `1px solid rgba(197, 160, 40, 0.1)`, color: '#444' }}>
-        <p>&copy; {new Date().getFullYear()} Safi International Capital LTD. All Rights Reserved.</p>
-      </footer> 
-      */}
 
     </main>
   );

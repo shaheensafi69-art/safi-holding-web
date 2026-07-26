@@ -186,7 +186,7 @@ export default function AboutPage() {
           <div style={{ width: '80px', height: '4px', background: theme.goldMid, margin: '20px auto', borderRadius: '2px', boxShadow: `0 0 10px ${theme.goldMid}` }} />
         </div>
 
-        {/* 1. Safi AI Deep Dive (اضافه شده جدید) */}
+        {/* 1. Safi AI Deep Dive */}
         <motion.div whileHover={{ scale: 1.02, rotateX: 2 }} style={glass3DCard}>
           <div style={innerGlassCard}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '30px', marginBottom: '30px', flexWrap: 'wrap', transform: 'translateZ(40px)' }}>
@@ -250,7 +250,23 @@ export default function AboutPage() {
           </div>
         </motion.div>
 
-        {/* --- 5. THE MISSION STATEMENT 3D --- */}
+        {/* 5. Safi Academy Deep Dive */}
+        <motion.div whileHover={{ scale: 1.02, rotateX: 2 }} style={glass3DCard}>
+          <div style={innerGlassCard}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '30px', marginBottom: '30px', flexWrap: 'wrap', transform: 'translateZ(40px)' }}>
+               <img src="/safi-academy.png" alt="Safi Academy" style={{ height: '70px', filter: `drop-shadow(0 5px 15px ${theme.goldGlow})` }} />
+               <h2 style={{ ...sectionTitleStyle, marginBottom: '0' }}>Safi Academy: Educational Excellence</h2>
+            </div>
+            <p style={paragraphStyle}>
+              Safi Academy is the premier educational pillar of the Safi Ecosystem, designed to administer professional IT, software development, and digital financial certification curricula. Through advanced institutional pathways and rigorous academic structures, Safi Academy empowers the next generation of digital architects and tech leaders with cutting-edge skills.
+            </p>
+            <p style={paragraphStyle}>
+              With automated gamification benchmarks, official certification pipelines, and a robust learning management environment, Safi Academy bridges the gap between theoretical knowledge and practical industry mastery, setting a new benchmark for digital education worldwide.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* --- 6. THE MISSION STATEMENT 3D --- */}
         <section style={{ textAlign: 'center', padding: '120px 0', borderTop: `1px solid ${theme.goldDark}`, perspective: '1000px' }}>
           <motion.div initial={{ opacity: 0, rotateX: -20 }} whileInView={{ opacity: 1, rotateX: 0 }} transition={{ duration: 1 }} style={{ transformStyle: 'preserve-3d' }}>
             <h2 style={{ ...sectionTitleStyle, transform: 'translateZ(30px)' }}>Our Unwavering Mission</h2>

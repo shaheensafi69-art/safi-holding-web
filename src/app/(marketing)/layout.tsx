@@ -9,18 +9,25 @@ export default function MarketingLayout({
     <div style={{
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
       width: '100%',
-      minHeight: '100vh', 
+      minHeight: '100vh',
+      backgroundColor: '#000000',
+      color: '#ffffff',
+      position: 'relative', // بسیار مهم: باعث می‌شود تمام المان‌های absolute صفحات داخل همین چهارچوب قفل شوند
+      overflowX: 'hidden',  // برش دادن کامل هر چیز اضافی که به سمت بغل بزند
       margin: 0,
-      padding: 0
+      padding: 0,
+      boxSizing: 'border-box',
     }}>
-      {/* Container اصلی حالا تمام عرض مانیتور را می‌گیرد */}
+      {/* Container اصلی تمام‌عرض */}
       <div style={{
         width: '100%',
+        maxWidth: '100%',
+        position: 'relative',
         margin: 0,
         padding: 0,
-        // maxWidth: '1200px' -> به طور کامل حذف شد تا نیم صفحه نشود
+        overflowX: 'hidden',
+        boxSizing: 'border-box',
       }}>
         {children}
       </div>
