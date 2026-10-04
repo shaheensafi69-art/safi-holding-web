@@ -6,29 +6,8 @@ export default function MarketingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      width: '100%',
-      minHeight: '100vh',
-      backgroundColor: '#000000',
-      color: '#ffffff',
-      position: 'relative', // بسیار مهم: باعث می‌شود تمام المان‌های absolute صفحات داخل همین چهارچوب قفل شوند
-      overflowX: 'hidden',  // برش دادن کامل هر چیز اضافی که به سمت بغل بزند
-      margin: 0,
-      padding: 0,
-      boxSizing: 'border-box',
-    }}>
-      {/* Container اصلی تمام‌عرض */}
-      <div style={{
-        width: '100%',
-        maxWidth: '100%',
-        position: 'relative',
-        margin: 0,
-        padding: 0,
-        overflowX: 'hidden',
-        boxSizing: 'border-box',
-      }}>
+    <div className="flex flex-col w-full min-h-screen bg-[#030305] text-[#F0F0F5] relative overflow-x-hidden">
+      <div className="w-full max-w-full relative overflow-x-hidden">
         {children}
       </div>
     </div>

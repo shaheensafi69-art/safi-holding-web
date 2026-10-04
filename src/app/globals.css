@@ -1,16 +1,138 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-/* اگر تیلوند کار نکرد، این استایل‌های پایه مشکل را حل می‌کنند */
-body {
-  background-color: #050505 !important;
-  color: white !important;
-  margin: 0;
-  font-family: sans-serif;
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  
+  --color-bg-base: #030305;
+  --color-bg-card: rgba(14, 14, 18, 0.7);
+  --color-gold-light: #F9E79F;
+  --color-gold-mid: #D4AF37;
+  --color-gold-dark: #8C6D1F;
+  --color-gold-glow: rgba(212, 175, 55, 0.25);
+  
+  --color-zev-cyan: #00F0FF;
+  --color-zev-purple: #8A2BE2;
+  --color-zev-glow: rgba(0, 240, 255, 0.3);
 }
 
-a {
-  text-decoration: none;
-  color: #C5A028;
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #030305 !important;
+  color: #F0F0F5 !important;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden !important;
+  width: 100%;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050508;
+}
+::-webkit-scrollbar-thumb {
+  background: #22222b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: #FFFFFF;
+}
+
+/* Gold Gradient Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #9A7B1C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-zev-gradient {
+  background: linear-gradient(135deg, #00F0FF 0%, #7000FF 50%, #FF007A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-glow {
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.glass-panel {
+  background: rgba(12, 12, 18, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-luxury {
+  background: linear-gradient(145deg, rgba(20, 20, 28, 0.6) 0%, rgba(8, 8, 12, 0.85) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-luxury:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 45px rgba(212, 175, 55, 0.2);
+  transform: translateY(-4px);
+}
+
+.glass-card-zev {
+  background: linear-gradient(145deg, rgba(10, 20, 30, 0.65) 0%, rgba(5, 10, 18, 0.9) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-zev:hover {
+  border-color: rgba(0, 240, 255, 0.6);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 55px rgba(0, 240, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+/* Background Grids & Ambient Lights */
+.bg-radial-grid {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-radial-grid-dense {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glow animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 8s ease-in-out infinite;
 }

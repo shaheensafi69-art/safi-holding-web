@@ -1,360 +1,495 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { 
+  ShieldCheck, 
+  ArrowRight, 
+  ExternalLink, 
+  Globe2, 
+  Database, 
+  CreditCard, 
+  Radio, 
+  ShoppingBag, 
+  GraduationCap, 
+  Cpu, 
+  Smartphone,
+  Video,
+  Lock,
+  CheckCircle2,
+  TrendingUp,
+  MapPin,
+  Layers,
+  Sparkles
+} from 'lucide-react';
 
 export default function HomePage() {
-  // پالت رنگی اختصاصی، مدرن و فوق‌العاده لوکس
-  const theme = {
-    black: '#000000',
-    darkBg: '#080808',
-    cardBg: '#0c0c0c',
-    goldLight: '#FCE792',
-    goldMid: '#D4AF37',
-    goldDark: '#8A6D1C',
-    goldGlow: 'rgba(212, 175, 55, 0.2)',
-    borderGlow: 'rgba(212, 175, 55, 0.3)',
-  };
-
-  // استایل دکمه‌های ۳ بعدی پیشرفته
-  const btn3DStyle = {
-    background: `linear-gradient(135deg, #1a1608 0%, ${theme.black} 100%)`,
-    border: `1px solid ${theme.goldMid}`,
-    color: theme.goldLight,
-    padding: '18px 50px',
-    borderRadius: '12px',
-    fontSize: '14px',
-    fontWeight: '800',
-    textTransform: 'uppercase' as const,
-    letterSpacing: '2.5px',
-    cursor: 'pointer',
-    boxShadow: `0 15px 35px ${theme.goldGlow}, inset 0 0 15px rgba(212,175,55,0.1)`,
-    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-    textDecoration: 'none',
-    display: 'inline-block',
-  };
-
-  // کامپوننت کارت سه‌بعدی (3D Card) با دیزاین بسیار شیک و عمق‌دار
-  const ThreeDCard = ({ title, desc, link, imageStr, alt }: any) => (
-    <motion.div
-      whileHover={{ scale: 1.03, rotateY: 5, rotateX: -5, y: -8 }}
-      transition={{ type: "spring", stiffness: 350, damping: 20 }}
-      style={{
-        backgroundColor: theme.black,
-        borderRadius: '20px',
-        padding: '2px', // ایجاد حاشیه گرادیانت طلایی خیره‌کننده
-        background: `linear-gradient(145deg, ${theme.goldMid}, rgba(255,255,255,0.05) 40%, ${theme.goldDark})`,
-        boxShadow: `0 20px 40px rgba(0,0,0,0.8), 0 0 25px ${theme.goldGlow}`,
-        perspective: '1000px',
-        transformStyle: 'preserve-3d',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        minHeight: '440px',
-      }}
-    >
-      <div style={{
-        backgroundColor: theme.cardBg,
-        borderRadius: '18px',
-        height: '100%',
-        padding: '45px 30px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        transform: 'translateZ(25px)',
-        border: '1px solid rgba(255,255,255,0.03)'
-      }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ 
-            height: '75px', 
-            marginBottom: '30px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            filter: `drop-shadow(0 8px 20px ${theme.goldGlow})`
-          }}>
-            <img src={imageStr} alt={alt} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
-          </div>
-          <h3 style={{ 
-            color: theme.goldLight, 
-            fontSize: '22px', 
-            fontWeight: '900', 
-            marginBottom: '15px', 
-            textAlign: 'center', 
-            letterSpacing: '1px',
-            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
-          }}>
-            {title}
-          </h3>
-          <p style={{ color: '#999', fontSize: '14px', lineHeight: '1.8', textAlign: 'center' }}>
-            {desc}
-          </p>
-        </div>
-        
-        <div style={{ marginTop: '35px', textAlign: 'center' }}>
-          <a href={link} target="_blank" rel="noopener noreferrer" style={{
-            color: theme.goldMid, 
-            fontWeight: '700', 
-            textDecoration: 'none', 
-            fontSize: '12px', 
-            letterSpacing: '2px', 
-            borderBottom: `2px solid ${theme.goldDark}`, 
-            paddingBottom: '6px', 
-            transition: 'all 0.3s ease',
-            display: 'inline-block'
-          }}>
-            ENTER PORTAL ➔
-          </a>
-        </div>
-      </div>
-    </motion.div>
-  );
+  const ecosystemVentures = [
+    {
+      id: 'zev',
+      name: 'ZEV',
+      category: 'Next-Gen Social Network',
+      tagline: 'High-speed 60fps vertical reels, authentic community, on-device biometric privacy, and unified database with Safi Academy.',
+      badge: 'SOCIAL MEDIA',
+      badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+      logo: '/zev.png',
+      link: 'https://www.zevapp.com',
+      isExternal: true,
+      buttonText: 'VISIT ZEVAPP.COM',
+      stats: '60 FPS Reels • 50+ Nations',
+      highlightBorder: 'hover:border-cyan-400/50 hover:shadow-[0_20px_45px_rgba(0,240,255,0.2)]',
+      accentGlow: 'from-cyan-500/15 via-blue-500/10 to-transparent'
+    },
+    {
+      id: 'safiai',
+      name: 'Safi AI',
+      category: 'Artificial Intelligence & Neural Voice',
+      tagline: 'The Chief AI Assistant and official spokesperson of the Safi Ecosystem, executing intelligent corporate brand representation.',
+      badge: 'NEURAL AI',
+      badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+      logo: '/SafiAi.png',
+      link: 'https://safiai.site',
+      isExternal: true,
+      buttonText: 'LAUNCH SAFIAI.SITE',
+      stats: 'Neural Core • Brand Voice',
+      highlightBorder: 'hover:border-purple-400/50 hover:shadow-[0_20px_45px_rgba(168,85,247,0.2)]',
+      accentGlow: 'from-purple-500/15 via-pink-500/10 to-transparent'
+    },
+    {
+      id: 'safipay',
+      name: 'SafiPay',
+      category: 'Global NeoBanking & FinTech',
+      tagline: 'Advanced digital banking infrastructure providing multi-currency accounts and instant international Visa cards.',
+      badge: 'FINTECH',
+      badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+      logo: '/safipay.png',
+      link: 'https://www.safipay.net',
+      isExternal: true,
+      buttonText: 'ENTER SAFIPAY.NET',
+      stats: 'Multi-Currency • Visa Cards',
+      highlightBorder: 'hover:border-amber-400/50 hover:shadow-[0_20px_45px_rgba(245,158,11,0.2)]',
+      accentGlow: 'from-amber-500/15 via-yellow-500/10 to-transparent'
+    },
+    {
+      id: 'safitopup',
+      name: 'Safi TopUp',
+      category: 'Global Telecom Network',
+      tagline: 'Instant mobile credit, data transfers, and gaming top-ups across 700+ operators in over 150 countries worldwide.',
+      badge: 'TELECOM',
+      badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+      logo: '/safitopup.png',
+      link: 'https://www.safitopup.site',
+      isExternal: true,
+      buttonText: 'VISIT SAFITOPUP.SITE',
+      stats: '700+ Telcos • 150+ Countries',
+      highlightBorder: 'hover:border-emerald-400/50 hover:shadow-[0_20px_45px_rgba(16,185,129,0.2)]',
+      accentGlow: 'from-emerald-500/15 via-teal-500/10 to-transparent'
+    },
+    {
+      id: 'safipro',
+      name: 'SafiPro',
+      category: 'Commerce & Enterprise Licensing',
+      tagline: 'High-end international software licensing, developer tools, verified accounts, and lifestyle e-commerce.',
+      badge: 'COMMERCE',
+      badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+      logo: '/safipro.png',
+      link: 'https://www.safipro.site',
+      isExternal: true,
+      buttonText: 'SHOP SAFIPRO.SITE',
+      stats: 'Global Supply • Developer Tools',
+      highlightBorder: 'hover:border-blue-400/50 hover:shadow-[0_20px_45px_rgba(59,130,246,0.2)]',
+      accentGlow: 'from-blue-500/15 via-indigo-500/10 to-transparent'
+    },
+    {
+      id: 'safiacademy',
+      name: 'Safi Academy',
+      category: 'Tech & Financial Education',
+      tagline: 'Premier global educational ecosystem delivering IT, algorithmic trading, and software engineering certification with unified database.',
+      badge: 'EDUCATION',
+      badgeColor: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/40',
+      logo: '/safi-academy.png',
+      link: 'https://www.safiacademy.org',
+      isExternal: true,
+      buttonText: 'VISIT SAFIACADEMY.ORG',
+      stats: 'Unified DB • Official Diplomas',
+      highlightBorder: 'hover:border-yellow-400/50 hover:shadow-[0_20px_45px_rgba(234,179,8,0.2)]',
+      accentGlow: 'from-yellow-500/15 via-amber-500/10 to-transparent'
+    },
+  ];
 
   return (
-    <main style={{ 
-      width: '100%', 
-      backgroundColor: theme.black, 
-      color: '#fff', 
-      overflowX: 'hidden', // فیکس کامل اسکرول افقی
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      position: 'relative'
-    }}>
+    <div className="w-full flex flex-col items-center bg-[#030305] text-[#F0F0F5] relative overflow-hidden">
+      
+      {/* Ambient background glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[650px] bg-gradient-to-b from-[#D4AF37]/15 via-purple-900/10 to-transparent blur-[160px] pointer-events-none" />
+      <div className="absolute top-[1200px] right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[180px] pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-grid opacity-25 pointer-events-none" />
 
-      {/* --- HERO SECTION 3D --- */}
-      <section style={{
-        width: '100%', 
-        minHeight: '92vh', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        position: 'relative', 
-        perspective: '1200px', 
-        overflow: 'hidden', // جلوگیری از بیرون زدن انیمیشن پس‌زمینه
-        padding: '80px 5%'
-      }}>
-        {/* پس‌زمینه کهکشانی و نورپردازی لوکس */}
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
-          <motion.div 
-            animate={{ rotateZ: 360, scale: [1, 1.15, 1] }}
-            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            style={{
-              position: 'absolute', width: '140%', height: '140%', top: '-20%', left: '-20%',
-              background: `radial-gradient(circle at 50% 50%, #161105 0%, ${theme.black} 65%)`,
-            }}
-          />
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: `radial-gradient(${theme.goldDark} 1px, transparent 1px)`, backgroundSize: '60px 60px', opacity: 0.08 }} />
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, rotateX: 15, y: 40 }}
-          animate={{ opacity: 1, rotateX: 0, y: 0 }}
-          transition={{ duration: 1.2, type: 'spring' }}
-          style={{ position: 'relative', zIndex: 2, textAlign: 'center', width: '100%', maxWidth: '1200px', transformStyle: 'preserve-3d' }}
-        >
-          <motion.div whileHover={{ scale: 1.01 }} style={{ cursor: 'default' }}>
-            <span style={{ 
-              color: theme.goldMid, 
-              fontWeight: '700', 
-              fontSize: '13px', 
-              letterSpacing: '6px', 
-              textTransform: 'uppercase', 
-              display: 'inline-block', 
-              marginBottom: '20px',
-              textShadow: `0 0 15px ${theme.goldGlow}`
-            }}>
-              Premier Global Holding
+      {/* ========================================================
+          1. HERO SECTION: MAJESTIC BRITISH HOLDING & VENTURES
+         ======================================================== */}
+      <section className="relative z-10 w-full min-h-[85vh] flex flex-col justify-center items-center py-16 sm:py-24">
+        {/* Full-width container with low side margins */}
+        <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4 text-center space-y-7">
+          
+          {/* Corporate Verification Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="inline-flex items-center gap-2 sm:gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-[#D4AF37]/35 shadow-[0_0_30px_rgba(212,175,55,0.15)]"
+          >
+            <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
+            <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#E5E5EB] uppercase">
+              Incorporated in England & Wales • Company No: <strong className="text-[#F9E79F] font-mono">17063286</strong>
             </span>
-            
-            <h1 style={{ 
-              fontSize: 'clamp(38px, 6.5vw, 85px)', 
-              fontWeight: '900', 
-              margin: '0 0 25px 0',
-              lineHeight: '1.1',
-              background: `linear-gradient(to right, ${theme.goldMid}, ${theme.goldLight}, ${theme.goldMid})`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              filter: `drop-shadow(0px 15px 35px rgba(212,175,55,0.3))`,
-              transform: 'translateZ(40px)'
-            }}>
-              SAFI INTERNATIONAL<br/>CAPITAL LTD
+          </motion.div>
+
+          {/* Master Headline */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <span className="block text-xs sm:text-sm font-black uppercase tracking-[0.3em] text-[#D4AF37]">
+              Premier Global Investment & Technology Holding
+            </span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05]">
+              SAFI INTERNATIONAL
+              <br />
+              <span className="text-gold-gradient font-black">CAPITAL LTD</span>
             </h1>
           </motion.div>
-          
-          <p style={{ 
-            color: '#aaa', 
-            fontSize: 'clamp(15px, 1.8vw, 20px)', 
-            maxWidth: '800px', 
-            margin: '0 auto 45px auto', 
-            lineHeight: '1.9',
-            transform: 'translateZ(20px)'
-          }}>
-            A premier global investment & technology holding company.<br/>
-            Registered in the United Kingdom (No: 17063286 | SIC: 66190).
-          </p>
 
-          <motion.a 
-            href="#ecosystem"
-            whileHover={{ scale: 1.05, boxShadow: `0 0 40px ${theme.goldMid}` }}
-            whileTap={{ scale: 0.95 }}
-            style={{ ...btn3DStyle, transform: 'translateZ(30px)' }}
+          {/* Corporate Manifesto Paragraph */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-base sm:text-xl text-[#A5A5B8] max-w-4xl mx-auto leading-relaxed"
           >
-            DISCOVER THE ECOSYSTEM
-          </motion.a>
-        </motion.div>
-      </section>
+            A premier global investment and technology holding company stewarding transformative digital infrastructures across fintech, consumer social networks, artificial intelligence, telecommunications, and digital academies.
+          </motion.p>
 
-      {/* --- ECOSYSTEM SECTION 3D GRID --- */}
-      <section id="ecosystem" style={{
-        width: '100%', 
-        padding: '140px 5%', 
-        backgroundColor: theme.black, 
-        position: 'relative', 
-        zIndex: 3,
-        borderTop: `1px solid rgba(212, 175, 55, 0.12)`, 
-        boxShadow: `0 -25px 60px rgba(0,0,0,0.9)`,
-        overflow: 'hidden'
-      }}>
-        
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <h2 style={{ 
-            fontSize: 'clamp(28px, 4.5vw, 50px)', 
-            fontWeight: '900', 
-            color: theme.goldLight, 
-            textShadow: `0 5px 25px ${theme.goldGlow}`, 
-            letterSpacing: '2px',
-            marginBottom: '15px'
-          }}>
-            GLOBAL INFRASTRUCTURE
-          </h2>
-          <p style={{ color: '#777', fontSize: '14px', letterSpacing: '1px' }}>Explore our elite portfolio of advanced tech & fintech verticals</p>
-          <div style={{ width: '90px', height: '3px', background: `linear-gradient(to right, transparent, ${theme.goldMid}, transparent)`, margin: '25px auto', borderRadius: '2px', boxShadow: `0 0 15px ${theme.goldMid}` }} />
-        </div>
-
-        {/* گرید تمام‌صفحه و منظم */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '35px', 
-          width: '100%',
-          maxWidth: '1400px', 
-          margin: '0 auto',
-          perspective: '1500px'
-        }}>
-          <ThreeDCard 
-            title="Safi AI" 
-            desc="The Chief AI Assistant and official spokesperson of the Safi Ecosystem, executing intelligent brand representation."
-            link="https://safiai.site"
-            imageStr="/SafiAi.png"
-            alt="Safi AI"
-          />
-          <ThreeDCard 
-            title="SafiPay" 
-            desc="Advanced digital banking providing multi-currency accounts and instant global Visa cards for seamless international transactions."
-            link="https://www.safipay.net"
-            imageStr="/safipay.png"
-            alt="SafiPay"
-          />
-          <ThreeDCard 
-            title="Safi TopUp" 
-            desc="Instant mobile credit and data transfers to 700+ operators in over 150 countries. Global connectivity verified."
-            link="https://www.safitopup.site"
-            imageStr="/safitopup.png"
-            alt="Safi TopUp"
-          />
-          <ThreeDCard 
-            title="SafiPro" 
-            desc="High-end international apparel and e-commerce brand defined by modern aesthetic, quality craftsmanship, and global reach."
-            link="https://www.safipro.site"
-            imageStr="/safipro.png"
-            alt="SafiPro"
-          />
-          <ThreeDCard 
-            title="Safi Academy"
-            desc="Advanced educational portal administering professional IT and digital financial certification curricula and institutional pathways."
-            link="https://www.safiacademy.org"
-            imageStr="/safi-academy.png"
-            alt="Safi Academy"
-          />
-        </div>
-      </section>
-
-      {/* --- FOUNDER SECTION 3D --- */}
-      <section style={{ 
-        width: '100%', 
-        padding: '140px 5%', 
-        backgroundColor: theme.darkBg, 
-        borderTop: `1px solid rgba(212, 175, 55, 0.08)`, 
-        overflow: 'hidden', 
-        perspective: '1000px',
-        position: 'relative'
-      }}>
-        <div style={{ 
-          display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', 
-          gap: '60px', width: '100%', maxWidth: '1400px', margin: '0 auto' 
-        }}>
-          
-          <motion.div 
-            initial={{ opacity: 0, rotateY: -15, x: -40 }}
-            whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            style={{ flex: '1 1 420px', transformStyle: 'preserve-3d' }}
+          {/* Primary Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-4 pt-2"
           >
-            <h4 style={{ color: theme.goldMid, fontWeight: '800', letterSpacing: '5px', fontSize: '13px', marginBottom: '20px' }}>VISION & LEADERSHIP</h4>
-            <h2 style={{ fontSize: 'clamp(40px, 6.5vw, 70px)', fontWeight: '900', color: theme.goldLight, margin: '0 0 30px 0', lineHeight: '1.05' }}>
-              SHAHEEN<br/>SAFI
-            </h2>
-            <p style={{ color: '#aaa', fontSize: '16px', lineHeight: '2.1', marginBottom: '45px', maxWidth: '540px' }}>
-              "Driving financial inclusion and digital innovation across global markets."<br/><br/>
-              Explore the strategic blueprint of the Safi Ecosystem, deep-dive into Fintech infrastructures, and discover the future of global digital economies.
-            </p>
-            <motion.a 
-              href="https://www.shaheensafi.blog" 
-              target="_blank"
-              whileHover={{ scale: 1.05, background: theme.goldMid, color: theme.black }}
-              style={{ ...btn3DStyle, background: theme.black, borderColor: theme.goldDark, color: theme.goldMid }}
+            <a
+              href="#ecosystem"
+              className="px-8 py-4 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-[0.18em] text-black bg-gradient-to-r from-[#F9E79F] via-[#D4AF37] to-[#AA820A] shadow-[0_10px_35px_rgba(212,175,55,0.4)] hover:shadow-[0_15px_45px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
             >
-              ACCESS FOUNDER'S LOG
-            </motion.a>
+              <span>Explore The Ecosystem</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+
+            <Link
+              href="/about"
+              className="px-8 py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-white bg-white/[0.04] border border-white/20 hover:border-[#D4AF37] hover:text-[#F9E79F] transition duration-300 flex items-center gap-2"
+            >
+              <span>Corporate Overview</span>
+            </Link>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, rotateY: 15, x: 40 }}
-            whileInView={{ opacity: 1, rotateY: 0, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            style={{ flex: '1 1 420px', position: 'relative', display: 'flex', justifyContent: 'center' }}
+          {/* Scale & Institutional Stats Bar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="pt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto"
           >
-            {/* قاب سه‌بعدی طلایی فوق‌العاده شیک عکس موسس */}
-            <div style={{ position: 'relative', padding: '25px', width: '100%', maxWidth: '440px' }}>
-              <div style={{ 
-                position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, 
-                border: `2px solid ${theme.goldMid}`, borderRadius: '24px', 
-                transform: 'translateZ(-25px) rotate(-3deg)', 
-                boxShadow: `0 0 35px ${theme.goldGlow}`,
-                background: 'linear-gradient(135deg, rgba(212,175,55,0.1), transparent)'
-              }} />
-              <img 
-                src="/safi.png" 
-                alt="Shaheen Safi" 
-                style={{ 
-                  width: '100%', 
-                  borderRadius: '18px', 
-                  position: 'relative', 
-                  zIndex: 2,
-                  boxShadow: '0 35px 60px rgba(0,0,0,0.9)',
-                  border: '1px solid rgba(255,255,255,0.05)'
-                }} 
-              />
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md">
+              <div className="text-2xl sm:text-3xl font-black text-[#F9E79F]">6 Global Entities</div>
+              <div className="text-[11px] sm:text-xs text-[#8E8EA0] uppercase tracking-wider font-semibold mt-1">
+                Integrated Portfolio
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md">
+              <div className="text-2xl sm:text-3xl font-black text-cyan-400">ZEV 60FPS</div>
+              <div className="text-[11px] sm:text-xs text-[#8E8EA0] uppercase tracking-wider font-semibold mt-1">
+                Social Technology
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md">
+              <div className="text-2xl sm:text-3xl font-black text-emerald-400">150+ Countries</div>
+              <div className="text-[11px] sm:text-xs text-[#8E8EA0] uppercase tracking-wider font-semibold mt-1">
+                Worldwide Reach
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md">
+              <div className="text-2xl sm:text-3xl font-black text-[#D4AF37]">Covent Garden</div>
+              <div className="text-[11px] sm:text-xs text-[#8E8EA0] uppercase tracking-wider font-semibold mt-1">
+                London Headquarters
+              </div>
             </div>
           </motion.div>
 
         </div>
       </section>
 
-    </main>
+      {/* ========================================================
+          2. ECOSYSTEM PORTFOLIO: HERE IS WHERE ZEV & OTHER PROJECTS ARE
+         ======================================================== */}
+      <section id="ecosystem" className="relative z-10 w-full py-20 border-t border-white/[0.06]">
+        {/* Full-width container with low side margins */}
+        <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <span className="text-xs font-black uppercase tracking-[0.26em] text-[#D4AF37]">
+              Global Infrastructure Directory
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white">
+              The Safi Ecosystem & Projects
+            </h2>
+            <p className="text-sm sm:text-base text-[#9494A8]">
+              Explore our elite portfolio of advanced tech, social networking, fintech, telecommunications, and certified education.
+            </p>
+          </div>
+
+          {/* 6-Card Grid: ZEV, Safi AI, SafiPay, Safi TopUp, SafiPro, Safi Academy */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {ecosystemVentures.map((venture, idx) => (
+              <motion.div
+                key={venture.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                className={`group rounded-3xl p-1 bg-gradient-to-b ${venture.accentGlow} border border-white/10 ${venture.highlightBorder} transition-all duration-500 flex flex-col justify-between`}
+              >
+                <div className="rounded-[22px] bg-[#0A0A10]/95 backdrop-blur-2xl p-7 sm:p-8 h-full flex flex-col justify-between space-y-6">
+                  
+                  {/* Top Header */}
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-black/70 border border-white/10 p-2.5 flex items-center justify-center group-hover:scale-105 group-hover:border-white/30 transition duration-300 shadow-[0_8px_20px_rgba(0,0,0,0.6)]">
+                        <img 
+                          src={venture.logo} 
+                          alt={venture.name} 
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <span className={`px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-wider border ${venture.badgeColor}`}>
+                        {venture.badge}
+                      </span>
+                    </div>
+
+                    <div className="space-y-1">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                        {venture.category}
+                      </span>
+                      <h3 className="text-2xl font-black text-white group-hover:text-[#F9E79F] transition">
+                        {venture.name}
+                      </h3>
+                    </div>
+
+                    <p className="text-sm text-[#A0A0B5] mt-3 leading-relaxed">
+                      {venture.tagline}
+                    </p>
+                  </div>
+
+                  {/* Bottom Stats & Link */}
+                  <div className="pt-6 border-t border-white/5 space-y-4">
+                    <div className="flex items-center justify-between text-xs text-[#8E8EA0] font-mono">
+                      <span>{venture.stats}</span>
+                    </div>
+
+                    <a
+                      href={venture.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-center text-white bg-white/[0.04] hover:bg-white/[0.1] border border-white/10 group-hover:border-[#D4AF37]/50 group-hover:text-[#F9E79F] transition duration-300 flex items-center justify-center gap-2"
+                    >
+                      <span>{venture.buttonText}</span>
+                      <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
+                    </a>
+                  </div>
+
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================
+          3. SYNERGY SECTION: THE UNIFIED HOLDING ARCHITECTURE
+         ======================================================== */}
+      <section className="relative z-10 w-full py-16">
+        {/* Full-width container with low side margins */}
+        <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4">
+          <div className="rounded-3xl p-8 sm:p-12 lg:p-14 bg-gradient-to-br from-[#0B0D16] via-[#05060A] to-[#120F06] border border-[#D4AF37]/25 shadow-[0_30px_90px_rgba(0,0,0,0.9)]">
+            <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+              <span className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">
+                Unified Holding Architecture
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-white">
+                Seamless Ecosystem Synergy
+              </h2>
+              <p className="text-sm sm:text-base text-[#A5A5B8]">
+                All entities under Safi International Capital operate with mutual interoperability — shared databases, instant financial rails, and AI-driven trust.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center text-[#F9E79F]">
+                  <Database className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Unified Identity & SSO</h3>
+                <p className="text-xs sm:text-sm text-[#9494A8] leading-relaxed">
+                  ZEV and Safi Academy operate on a synchronized, enterprise Supabase cloud cluster. Students can log in to ZEV with their exact educational credentials and display verified badges.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300">
+                  <CreditCard className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-white">SafiPay Liquidity Rails</h3>
+                <p className="text-xs sm:text-sm text-[#9494A8] leading-relaxed">
+                  Creators earning from ZEV reels and instructors at Safi Academy receive seamless, instant multi-currency payouts via SafiPay with virtual and physical Visa cards.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-400/40 flex items-center justify-center text-purple-300">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-bold text-white">Safi AI Autonomous Moderation</h3>
+                <p className="text-xs sm:text-sm text-[#9494A8] leading-relaxed">
+                  Advanced neural intelligence protects the entire ecosystem, enforcing automated CSAM interception, anti-fraud algorithms, and multi-lingual customer support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          4. FOUNDER & LEADERSHIP SECTION: SHAHEEN SAFI
+         ======================================================== */}
+      <section className="relative z-10 w-full py-20 border-t border-white/[0.06]">
+        {/* Full-width container with low side margins */}
+        <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Text */}
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#D4AF37]">
+                Visionary Leadership & Founder
+              </span>
+              <h2 className="text-4xl sm:text-6xl font-black text-white leading-tight">
+                SHAHEEN <span className="text-gold-gradient font-black">SAFI</span>
+              </h2>
+              <p className="text-lg text-[#F9E79F] font-semibold italic">
+                "Driving financial independence, high-speed social connectivity, and digital innovation for the global Afghan diaspora and emerging economies."
+              </p>
+              <p className="text-sm sm:text-base text-[#9E9EB0] leading-relaxed">
+                As Founder & Chief Executive Officer of Safi International Capital LTD, Shaheen Safi leads the strategic design of borderless digital architectures. Under his guidance, the group has developed cutting-edge applications in social technology (ZEV), fintech banking (SafiPay), and global education (Safi Academy).
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-4">
+                <a
+                  href="https://www.shaheensafi.blog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-7 py-3.5 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-[#D4AF37] hover:bg-[#F9E79F] transition shadow-[0_8px_25px_rgba(212,175,55,0.35)] flex items-center gap-2"
+                >
+                  <span>Read Founder's Blog</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                <Link
+                  href="/about"
+                  className="px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-white/5 border border-white/15 hover:border-[#D4AF37] hover:text-[#F9E79F] transition flex items-center gap-2"
+                >
+                  <span>Meet Executive Board</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Portrait Photo with 3D Luxury Framing */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative p-3 w-full max-w-md">
+                
+                {/* Outer decorative gold frame */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-[#D4AF37]/50 -rotate-2 shadow-[0_0_40px_rgba(212,175,55,0.25)] pointer-events-none" />
+                
+                {/* Image Container */}
+                <div className="relative rounded-2xl overflow-hidden bg-black border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.95)]">
+                  <img
+                    src="/safi.png"
+                    alt="Shaheen Safi - Founder & CEO"
+                    className="w-full h-auto object-cover scale-[1.01] hover:scale-105 transition duration-700"
+                  />
+                  
+                  <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent">
+                    <h3 className="text-lg font-black text-white">Shaheen Safi</h3>
+                    <p className="text-xs text-[#D4AF37] font-mono uppercase tracking-wider">
+                      Founder & CEO • Safi International Capital LTD
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          5. INSTITUTIONAL INQUIRY & LONDON HQ CTA
+         ======================================================== */}
+      <section className="relative z-10 w-full py-16 text-center">
+        {/* Full-width container with low side margins */}
+        <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4">
+          <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-b from-white/[0.04] to-black border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] space-y-6">
+            <span className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">
+              Institutional & Corporate Relations
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-white">
+              Partner With Safi Capital
+            </h2>
+            <p className="text-sm sm:text-base text-[#9E9EB0] max-w-xl mx-auto leading-relaxed">
+              Headquartered in London's Covent Garden, our corporate desk welcomes strategic partnerships, institutional investors, and digital collaborations.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <Link
+                href="/contact"
+                className="px-8 py-4 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-[#F9E79F] transition shadow-[0_8px_30px_rgba(212,175,55,0.4)]"
+              >
+                Contact Corporate Desk
+              </Link>
+              <a
+                href="https://wa.me/447476620282"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-widest text-[#25D366] bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 transition"
+              >
+                Direct WhatsApp Desk
+              </a>
+            </div>
+
+            <div className="pt-4 text-xs text-[#6F6F80] font-mono">
+              71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
   );
 }
