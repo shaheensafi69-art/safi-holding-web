@@ -395,7 +395,7 @@ export default function HomePage() {
                 "Driving financial independence, high-speed social connectivity, and digital innovation for the global Afghan diaspora and emerging economies."
               </p>
               <p className="text-sm sm:text-base text-[#9E9EB0] leading-relaxed">
-                As Founder & Chief Executive Officer of Safi International Capital LTD, Shaheen Safi leads the strategic design of borderless digital architectures. Under his guidance, the group has developed cutting-edge applications in social technology (ZEV), fintech banking (SafiPay), and global education (Safi Academy).
+                As Founder & Director of Safi International Capital LTD, Shaheen Safi leads the strategic design of borderless digital architectures. Under his guidance, the group has developed cutting-edge applications in social technology (ZEV), fintech banking (SafiPay), and global education (Safi Academy).
               </p>
 
               <div className="pt-2 flex flex-wrap gap-4">
@@ -430,14 +430,14 @@ export default function HomePage() {
                 <div className="relative rounded-2xl overflow-hidden bg-black border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.95)]">
                   <img
                     src="/safi.png"
-                    alt="Shaheen Safi - Founder & CEO"
+                    alt="Shaheen Safi - Founder & Director"
                     className="w-full h-auto object-cover scale-[1.01] hover:scale-105 transition duration-700"
                   />
                   
                   <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent">
                     <h3 className="text-lg font-black text-white">Shaheen Safi</h3>
                     <p className="text-xs text-[#D4AF37] font-mono uppercase tracking-wider">
-                      Founder & CEO • Safi International Capital LTD
+                      Founder & Director • Safi International Capital LTD
                     </p>
                   </div>
                 </div>

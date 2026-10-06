@@ -122,7 +122,7 @@ export default function ServicesPage() {
       features: [
         'Step-by-Step Fintech & Development Tutorials',
         'Global Diaspora Economic Insights',
-        'Strategic Directives from Founder & CEO Shaheen Safi'
+        'Strategic Directives from Founder & Director Shaheen Safi'
       ],
       image: '/safi.png',
       badge: 'INSIGHTS',

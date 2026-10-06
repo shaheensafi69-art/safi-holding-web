@@ -26,17 +26,30 @@ export default function AboutPage() {
   const leadership = [
     {
       name: 'Shaheen Safi',
-      role: 'FOUNDER & CHIEF EXECUTIVE OFFICER',
-      titlePill: 'Executive Chairman',
+      role: 'FOUNDER & DIRECTOR',
+      titlePill: 'Director & Founder',
       image: '/safi.png',
-      desc: 'The visionary architect behind the Safi ecosystem, leading global corporate strategy, fintech innovation, and high-capital ecosystem expansion across Europe and Central Asia.',
-      badge: 'Executive Board',
+      desc: 'The visionary architect and founder behind the Safi ecosystem, directing global corporate strategy, fintech innovation, and high-capital ecosystem expansion across Europe and Central Asia.',
+      badge: 'Founder & Director',
       focus: 'Strategy • FinTech • Global M&A',
       blogLink: 'https://www.shaheensafi.blog',
       accentGlow: 'from-[#D4AF37]/25 via-amber-500/10 to-transparent',
       glowColor: 'rgba(212,175,55,0.25)',
       badgeStyle: 'bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB] text-black font-extrabold shadow-[0_4px_15px_rgba(212,175,55,0.4)]',
       borderHover: 'group-hover:border-[#D4AF37]'
+    },
+    {
+      name: 'Sahel Salem',
+      role: 'CEO & EUROPE RELATIONS',
+      titlePill: 'Chief Executive Officer',
+      image: '/sahel.jpeg',
+      desc: 'Serving as Chief Executive Officer and managing European relations, directing strategic institutional partnerships, UK & EU capital alliances, and sovereign corporate governance protocols throughout European jurisdictions.',
+      badge: 'CEO & Europe Relations',
+      focus: 'Executive Leadership • EU Alliances',
+      accentGlow: 'from-emerald-500/20 via-teal-500/10 to-transparent',
+      glowColor: 'rgba(16,185,129,0.25)',
+      badgeStyle: 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 shadow-[0_4px_15px_rgba(16,185,129,0.3)]',
+      borderHover: 'group-hover:border-emerald-400'
     },
     {
       name: 'Mujtaba Rahmani',
@@ -52,30 +65,30 @@ export default function AboutPage() {
       borderHover: 'group-hover:border-blue-400'
     },
     {
-      name: 'Sahel Salem',
-      role: 'EUROPEAN RELATIONS DIRECTOR',
-      titlePill: 'European Affairs',
-      image: '/sahel.jpeg',
-      desc: 'Managing strategic institutional partnerships, UK & EU capital alliances, and sovereign corporate governance protocols throughout European jurisdictions.',
-      badge: 'EU & Sovereign Affairs',
-      focus: 'EU Alliances • Institutional Desk',
-      accentGlow: 'from-emerald-500/20 via-teal-500/10 to-transparent',
-      glowColor: 'rgba(16,185,129,0.25)',
-      badgeStyle: 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 shadow-[0_4px_15px_rgba(16,185,129,0.3)]',
-      borderHover: 'group-hover:border-emerald-400'
-    },
-    {
       name: 'Shirin Gol Ahmadi',
-      role: 'CORPORATE MANAGER & AI SPECIALIST',
-      titlePill: 'AI Architect & Systems',
+      role: 'ALL ECOSYSTEM MANAGER',
+      titlePill: 'Ecosystem Management',
       image: '/shirin.jpeg',
-      desc: 'Pioneering artificial intelligence architectures, agentic neural moderation for ZEV, automated enterprise workflows, and corporate operations.',
-      badge: 'AI Systems & Governance',
-      focus: 'Agentic Workflows • Neural Systems',
+      desc: 'Directing and orchestrating unified operations across the entire Safi ecosystem, overseeing synergy between ZEV, SafiPay, Safi AI, Safi TopUp, SafiPro, and corporate operations.',
+      badge: 'All Ecosystem Manager',
+      focus: 'Ecosystem Ops • Systems Synergy',
       accentGlow: 'from-purple-500/20 via-fuchsia-500/10 to-transparent',
       glowColor: 'rgba(168,85,247,0.25)',
       badgeStyle: 'bg-purple-500/15 text-purple-300 border border-purple-500/40 shadow-[0_4px_15px_rgba(168,85,247,0.3)]',
       borderHover: 'group-hover:border-purple-400'
+    },
+    {
+      name: 'Mobin Hassani',
+      role: 'LEAD DEVELOPER & SOFTWARE ARCHITECT',
+      titlePill: 'Core Development',
+      image: '/mobin-hassani.jpg',
+      desc: 'Directing core software engineering and scalable systems architecture, building high-resilience API infrastructures, and driving end-to-end technical development across the digital ecosystem.',
+      badge: 'Lead Developer',
+      focus: 'Architecture • Cloud & Security',
+      accentGlow: 'from-cyan-500/20 via-sky-500/10 to-transparent',
+      glowColor: 'rgba(6,182,212,0.25)',
+      badgeStyle: 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/40 shadow-[0_4px_15px_rgba(6,182,212,0.3)]',
+      borderHover: 'group-hover:border-cyan-400'
     },
   ];
 
@@ -242,8 +255,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Unified 4-Column High-Aesthetic Executive Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-7">
+          {/* Unified 5-Column High-Aesthetic Executive Gallery */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-7">
             {leadership.map((exec) => (
               <div
                 key={exec.name}
@@ -417,7 +430,7 @@ export default function AboutPage() {
               "To dissolve the artificial borders of the global economy through technological innovation, ensuring that every individual, regardless of their geography, possesses the digital and financial tools to achieve true independence."
             </p>
             <div className="pt-2 text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-              Shaheen Safi • Founder & CEO
+              Shaheen Safi • Founder & Director
             </div>
           </div>
         </div>
