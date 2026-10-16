@@ -12,7 +12,9 @@ import {
   Globe2,
   Building2,
   Lock,
-  ExternalLink
+  ExternalLink,
+  Award,
+  BookOpen
 } from 'lucide-react';
 
 export default function Footer() {
@@ -25,12 +27,15 @@ export default function Footer() {
     { name: 'Safi TopUp Network', href: 'https://www.safitopup.site', badge: 'Telecom', external: true },
     { name: 'SafiPro Commerce', href: 'https://www.safipro.site', badge: 'Digital', external: true },
     { name: 'Safi Academy', href: 'https://www.safiacademy.org', badge: 'Education', external: true },
-    { name: 'Shaheen Safi Blog', href: 'https://shaheensafi.blog', badge: 'Founder Log', external: true },
+    { name: 'Venture Portfolio Overview', href: '/portfolio', badge: 'Holding Verticals', external: false },
+    { name: 'Shaheen Safi Personal Blog', href: 'https://shaheensafi.blog', badge: 'Founder Anchor', external: true },
   ];
 
   const corporateLinks = [
     { name: 'Executive Overview', href: '/about' },
-    { name: 'Board of Directors', href: '/about#leadership' },
+    { name: 'Founder & Director Profile', href: '/about/shaheen-safi' },
+    { name: 'Board of Directors & Leadership', href: '/about#leadership' },
+    { name: 'Venture Portfolio & Ecosystem', href: '/portfolio' },
     { name: 'Global Infrastructure & Verticals', href: '/services' },
     { name: 'Official Pitch Deck (PDF)', href: '/downloads/pitch-deck.pdf' },
     { name: 'Corporate Inquiries & Desk', href: '/contact' },
@@ -42,6 +47,19 @@ export default function Footer() {
     { name: 'Child Safeguarding & Trust', href: 'https://www.zevapp.com/en/child-safety', external: true },
     { name: 'AML & Anti-Fraud Architecture', href: '/terms' },
     { name: 'UK Companies House Official Registry', href: 'https://find-and-update.company-information.service.gov.uk/company/17063286', external: true },
+    { name: 'Wikidata Corporate Entity (Q139502306)', href: 'https://www.wikidata.org/wiki/Q139502306', external: true },
+  ];
+
+  const founderSocials = [
+    { name: 'Wikidata (Q138427366)', href: 'https://www.wikidata.org/wiki/Q138427366', badge: 'Entity ID' },
+    { name: 'TED Profile', href: 'https://www.ted.com/profiles/51476914', badge: 'Speaker' },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/shaheen-safi-b73a30299', badge: 'Director' },
+    { name: 'X / Twitter', href: 'https://x.com/shaheensafi011', badge: '@shaheensafi011' },
+    { name: 'Instagram', href: 'https://www.instagram.com/top_g_official1', badge: '@top_g_official1' },
+    { name: 'TikTok', href: 'https://www.tiktok.com/@safi_sahib6', badge: '@safi_sahib6' },
+    { name: 'Facebook', href: 'https://www.facebook.com/share/18h8Drdg6z/', badge: 'Public' },
+    { name: 'Medium Publications', href: 'https://medium.com/@shaheensafi09', badge: 'Author' },
+    { name: 'shaheensafi.blog', href: 'https://shaheensafi.blog', badge: 'Blog' },
   ];
 
   return (
@@ -55,7 +73,7 @@ export default function Footer() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-50 shadow-[0_0_20px_#D4AF37]" />
 
       {/* Main Content Container with low side margins */}
-      <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4 relative z-10 space-y-14">
+      <div className="w-[96%] max-w-[1720px] mx-auto px-2 sm:px-4 relative z-10 space-y-12">
         
         {/* Top Banner Card: Institutional Holding Authority */}
         <div className="rounded-[30px] p-6 sm:p-8 bg-gradient-to-r from-white/[0.04] via-[#080810] to-[#120F06] border border-[#D4AF37]/30 shadow-[0_15px_40px_rgba(0,0,0,0.7)] flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -78,6 +96,9 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-3">
             <div className="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-[#D4AF37]/30 text-[11px] font-mono text-[#F9E79F]">
               Company No: <strong>17063286</strong>
+            </div>
+            <div className="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-[#D4AF37]/30 text-[11px] font-mono text-[#F9E79F]">
+              DUNS: <strong>234621356</strong>
             </div>
             <div className="px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-[#D4AF37]/30 text-[11px] font-mono text-[#F9E79F]">
               SIC Code: <strong>66190</strong>
@@ -133,19 +154,33 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {ecosystemLinks.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-between text-sm text-[#A0A0B5] hover:text-white transition"
-                  >
-                    <span className="group-hover:translate-x-1 transition duration-200">
-                      {item.name}
-                    </span>
-                    <span className="text-[9px] px-1.5 py-0.5 rounded font-mono font-semibold bg-white/[0.04] text-[#8E8EA0] group-hover:text-[#F9E79F] group-hover:bg-[#D4AF37]/15 transition">
-                      {item.badge}
-                    </span>
-                  </a>
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between text-sm text-[#A0A0B5] hover:text-white transition"
+                    >
+                      <span className="group-hover:translate-x-1 transition duration-200">
+                        {item.name}
+                      </span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded font-mono font-semibold bg-white/[0.04] text-[#8E8EA0] group-hover:text-[#F9E79F] group-hover:bg-[#D4AF37]/15 transition">
+                        {item.badge}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="group flex items-center justify-between text-sm text-[#A0A0B5] hover:text-white transition"
+                    >
+                      <span className="group-hover:translate-x-1 transition duration-200">
+                        {item.name}
+                      </span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded font-mono font-semibold bg-white/[0.04] text-[#8E8EA0] group-hover:text-[#F9E79F] group-hover:bg-[#D4AF37]/15 transition">
+                        {item.badge}
+                      </span>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -154,7 +189,7 @@ export default function Footer() {
           {/* Column 3: Corporate & Governance (2 Cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-black uppercase tracking-[0.24em] text-[#D4AF37]">
-              Corporate
+              Corporate & Governance
             </h4>
             <ul className="space-y-2.5">
               {corporateLinks.map((link) => (
@@ -224,6 +259,64 @@ export default function Footer() {
 
         </div>
 
+        {/* Dedicated Founder & Google Knowledge Graph Social Media Matrix */}
+        <div className="rounded-2xl p-6 bg-gradient-to-r from-white/[0.02] via-[#0A0A14] to-white/[0.02] border border-[#D4AF37]/25 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-[#D4AF37] shrink-0">
+                <img src="/shaheen.jpeg" alt="Shaheen Safi" className="w-full h-full object-cover object-top" />
+              </div>
+              <div>
+                <h5 className="text-sm font-bold text-white flex items-center gap-2">
+                  <span>Founder: Shaheen Safi (شاهین صافی)</span>
+                  <Link href="/about/shaheen-safi" className="text-xs text-[#D4AF37] hover:underline font-mono">
+                    [View Full Biography]
+                  </Link>
+                </h5>
+                <p className="text-xs text-[#8E8EA0]">
+                  Official Verified Profiles for Google Knowledge Graph & Entity Authority
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <a
+                href="https://shaheensafi.blog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 rounded-full text-xs font-mono font-bold text-[#F9E79F] bg-[#D4AF37]/15 border border-[#D4AF37]/35 hover:bg-[#D4AF37]/25 transition"
+              >
+                shaheensafi.blog
+              </a>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            {founderSocials.map((soc) => (
+              <a
+                key={soc.name}
+                href={soc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37]/40 text-xs text-[#A8A8C0] hover:text-white transition flex items-center gap-1.5"
+              >
+                <span className="font-medium">{soc.name}</span>
+                <span className="text-[10px] text-[#D4AF37] font-mono">({soc.badge})</span>
+                <ArrowUpRight className="w-3 h-3 opacity-60" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Mandatory Regulatory Statement (Companies House UK Compliance) */}
+        <div className="rounded-2xl p-4 bg-black/40 border border-white/5 text-center text-xs text-[#8A8A9E] leading-relaxed">
+          <p>
+            <strong>Safi International Capital LTD</strong> | Incorporated in England and Wales | Company Registration Number: <strong>17063286</strong> | SIC Code: <strong>66190</strong>
+            <br className="hidden sm:inline" />
+            Registered Office: <strong>71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom</strong> | Contact: <a href="mailto:info@safiinternationalcapitalltd.site" className="text-[#D4AF37] hover:underline">info@safiinternationalcapitalltd.site</a>
+          </p>
+        </div>
+
         {/* Bottom Bar: Copyright & Declarations */}
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6F6F82]">
           <p>
@@ -235,6 +328,9 @@ export default function Footer() {
             </Link>
             <Link href="/terms" className="hover:text-[#D4AF37] transition">
               Master Terms
+            </Link>
+            <Link href="/portfolio" className="hover:text-[#D4AF37] transition">
+              Portfolio
             </Link>
             <a 
               href="https://www.zevapp.com" 

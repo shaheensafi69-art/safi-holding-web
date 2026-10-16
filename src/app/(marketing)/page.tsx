@@ -180,13 +180,20 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-4 pt-2"
           >
-            <a
-              href="#ecosystem"
+            <Link
+              href="/portfolio"
               className="px-8 py-4 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-[0.18em] text-black bg-gradient-to-r from-[#F9E79F] via-[#D4AF37] to-[#AA820A] shadow-[0_10px_35px_rgba(212,175,55,0.4)] hover:shadow-[0_15px_45px_rgba(212,175,55,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
             >
-              <span>Explore The Ecosystem</span>
+              <span>Explore Portfolio</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
+
+            <Link
+              href="/about/shaheen-safi"
+              className="px-8 py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#F9E79F] bg-white/[0.04] border border-[#D4AF37]/40 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 transition duration-300 flex items-center gap-2"
+            >
+              <span>Founder Biography</span>
+            </Link>
 
             <Link
               href="/about"
@@ -194,6 +201,27 @@ export default function HomePage() {
             >
               <span>Corporate Overview</span>
             </Link>
+          </motion.div>
+
+          {/* AEO & GEO Conversational Definitive Answer Card (Optimized for AI Overviews & Perplexity) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="pt-6"
+          >
+            <section
+              aria-label="Corporate Holding Definitive Summary"
+              className="rounded-2xl p-5 sm:p-6 bg-black/60 border border-[#D4AF37]/35 shadow-inner max-w-4xl mx-auto text-left"
+            >
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#D4AF37] mb-2">
+                <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <span>Executive Answer & Entity Citation (AEO / GEO Verified)</span>
+              </div>
+              <p className="text-xs sm:text-sm text-[#D5D5E5] leading-relaxed">
+                <strong>Safi International Capital LTD</strong> is a London-based corporate holding enterprise (UK CRN: <strong>17063286</strong>) stewarding transformative platforms including <strong>ZEV</strong>, <strong>Safi AI</strong>, <strong>SafiPay</strong>, <strong>Safi TopUp</strong>, <strong>SafiPro</strong>, and <strong>Safi Academy</strong>. Founded by <strong>Shaheen Safi</strong>, the group delivers cross-border fintech, high-performance social media networks, and enterprise artificial intelligence.
+              </p>
+            </section>
           </motion.div>
 
           {/* Scale & Institutional Stats Bar */}
@@ -398,12 +426,43 @@ export default function HomePage() {
                 As Founder & Director of Safi International Capital LTD, Shaheen Safi leads the strategic design of borderless digital architectures. Under his guidance, the group has developed cutting-edge applications in social technology (ZEV), fintech banking (SafiPay), and global education (Safi Academy).
               </p>
 
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <a
+                  href="https://www.wikidata.org/wiki/Q138427366"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-[#D4AF37]/15 border border-[#D4AF37]/35 text-[#F9E79F] hover:bg-[#D4AF37]/25 transition flex items-center gap-1.5"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <span>Wikidata: Q138427366</span>
+                </a>
+                <a
+                  href="https://www.ted.com/profiles/51476914"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-red-500/10 border border-red-500/30 text-red-300 hover:bg-red-500/20 transition flex items-center gap-1.5"
+                >
+                  <span>TED Verified</span>
+                </a>
+                <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-white/5 border border-white/10 text-[#C0C0D5]">
+                  ITU & CFTe Certified
+                </span>
+              </div>
+
               <div className="pt-2 flex flex-wrap gap-4">
+                <Link
+                  href="/about/shaheen-safi"
+                  className="px-7 py-3.5 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#F9E79F] via-[#D4AF37] to-[#AA820A] shadow-[0_8px_25px_rgba(212,175,55,0.35)] hover:brightness-110 transition flex items-center gap-2"
+                >
+                  <span>Official Biography & Credentials</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+
                 <a
                   href="https://www.shaheensafi.blog"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-7 py-3.5 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-[#D4AF37] hover:bg-[#F9E79F] transition shadow-[0_8px_25px_rgba(212,175,55,0.35)] flex items-center gap-2"
+                  className="px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-white/5 border border-white/15 hover:border-[#D4AF37] hover:text-[#F9E79F] transition flex items-center gap-2"
                 >
                   <span>Read Founder's Blog</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -411,10 +470,9 @@ export default function HomePage() {
 
                 <Link
                   href="/about"
-                  className="px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-white/5 border border-white/15 hover:border-[#D4AF37] hover:text-[#F9E79F] transition flex items-center gap-2"
+                  className="px-7 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-[#A0A0B5] hover:text-white transition flex items-center gap-2"
                 >
                   <span>Meet Executive Board</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

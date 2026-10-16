@@ -1,0 +1,180 @@
+مخزن safi-holding-web قلب اصلی حضور دیجیتال شماست؛ زیرا به عنوان وب‌سایت شرکت مادر و هلدینگ (Safi International Capital LTD)، نقش هسته مرکزی را در اتصال تمام برندها (SafiPay, Safi TopUp, Safi Academy, Safi AI, Zev, SafiPro) و ثبت هویت حقوقی و فردی شما در گراف دانش گوگل (Google Knowledge Graph) ایفا می‌کند.برای اینکه این سایت در تمامی موتورهای جستجو، سیستم‌های پاسخ‌دهی صوتی و هوش مصنوعی در بالاترین سطح رتبه بگیرد، استراتژی ۵ گانه زیر را همراه با کدهای دقیق و پرامپت اجرایی آماده کرده‌ام:۱. معماری ۵ گانه بهینه‌سازی (SEO / AEO / SXO / AIO / GEO)بخشهدف عملیاتی در سایت هلدینگراهکار فنی در کدSEO (سنتی)رتبه اول برای جستجوی نام شرکت، نام شما و کلیدواژه‌های فین‌تک/سرمایه‌گذاریتگ‌های متا بی‌نقص، Hreflang، نقشه سایت چندزبانه و ساختار URL شفافAEO (پاسخ مستقیم)پاسخ صوتی و متنی چت‌بات‌ها به سوالاتی مانند: «سافی اینترنشنال چیست؟»قراردادن کادرهای پاسخ صریح (۴۰ تا ۶۰ کلمه) و اسکیمای FAQPageSXO (تجربه کاربری)حفظ کاربر در سایت، لود زیر ۱ ثانیه و عدم پرش صفحهبهینه‌سازی فونت‌ها، تصاویر و شاخص‌های Core Web VitalsAIO (هوش مصنوعی)درک ساختار هلدینگ توسط مدل‌های زبانی (Gemini, Claude, GPT)اتصال گراف نهادها با شناسه‌های رسمی Wikidata و داده‌های حقوقی انگلستانGEO (موتورهای مولد)دیده‌شدن در Google AI Overviews و Perplexity به عنوان منبع موثقصفحات مستند با استناد به شماره ثبت شرکت، آدرس لندن و لینک‌های خارجی معتبر۲. کد اسکیما مادر (Master Entity Graph JSON-LD)این کد ساختار کامل شرکت، شما به عنوان بنیان‌گذار، و پیوند تمام شرکت‌های تابعه را به موتورهای جستجو اعلام می‌کند. این اسکریپت باید در فایل Layout اصلی درون تگ <head> قرار گیرد:HTML<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Corporation",
+      "@id": "https://www.wikidata.org/wiki/Q139502306",
+      "name": "Safi International Capital LTD",
+      "legalName": "Safi International Capital LTD",
+      "alternateName": [
+        "Safi Holding",
+        "Safi International Capital",
+        "شرکت بین‌المللی سرمایه‌گذاری صافی"
+      ],
+      "url": "https://safiinternationalcapitalltd.site",
+      "logo": "https://safiinternationalcapitalltd.site/logo.png",
+      "identifier": "17063286",
+      "taxID": "85677 13611",
+      "duns": "234621356",
+      "email": "info@safiinternationalcapitalltd.site",
+      "telephone": "+44-20-XXXX-XXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "71-75 Shelton Street, Covent Garden",
+        "addressLocality": "London",
+        "postalCode": "WC2H 9JQ",
+        "addressCountry": "GB"
+      },
+      "founder": {
+        "@id": "https://www.wikidata.org/wiki/Q138427366"
+      },
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "minValue": 10,
+        "maxValue": 50
+      },
+      "subOrganization": [
+        {
+          "@type": "FinancialService",
+          "@id": "https://www.wikidata.org/wiki/Q141694711",
+          "name": "SafiPay",
+          "url": "https://safipay.net"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.wikidata.org/wiki/Q138820214",
+          "name": "Safi TopUp",
+          "url": "https://safitopup.site"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://www.wikidata.org/wiki/Q140546286",
+          "name": "Safi Academy",
+          "url": "https://safiacademy.org"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Safi AI",
+          "url": "https://safiai.site"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Zev",
+          "url": "https://www.zevapp.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "SafiPro",
+          "url": "https://safipro.site"
+        }
+      ],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q139502306",
+        "https://find-and-update.company-information.service.gov.uk/company/17063286"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wikidata.org/wiki/Q138427366",
+      "name": "Shaheen Safi",
+      "alternateName": ["شاهین صافی", "Shaheen Safi"],
+      "jobTitle": "Founder, Director & Chief Visionary Architect",
+      "url": "https://safiinternationalcapitalltd.site/about/shaheen-safi",
+      "image": "https://safiinternationalcapitalltd.site/images/shaheen-safi.jpg",
+      "birthDate": "2003-04-02",
+      "worksFor": {
+        "@id": "https://www.wikidata.org/wiki/Q139502306"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Istanbul Technical University (ITU)"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Certified Financial Technician (CFTe)",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "International Federation of Technical Analysts (IFTA)"
+          }
+        }
+      ],
+      "knowsAbout": [
+        "Financial Technology (FinTech)",
+        "Software Engineering",
+        "Venture Capital & Holding Management",
+        "Cross-Border Digital Banking"
+      ],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q138427366",
+        "https://www.ted.com/profiles/51476914",
+        "https://medium.com/@shaheensafi09",
+        "https://medium.com/@safipro011/the-vision-of-an-entrepreneur-who-is-shaheen-safi-7a2229cb4fbd"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://safiinternationalcapitalltd.site/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Safi International Capital LTD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Safi International Capital LTD is a United Kingdom-incorporated corporate holding and fintech incubation enterprise (Company No. 17063286) based in London, directing digital platforms including SafiPay, Safi TopUp, and Safi Academy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is the founder of Safi International Capital LTD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Safi International Capital LTD was founded by Shaheen Safi, a technology entrepreneur and software architect holding a Computer Science degree from Istanbul Technical University (ITU) and a CFTe certification."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+۳. الزامات حیاتی داخل صفحات سایت (برای تأیید Google Knowledge Panel)بخش فوتر (Footer) حقوقی استاندارد:حتماً در پایین تمام صفحات سایت متن زیر درج شود:Safi International Capital LTD | Incorporated in England and Wales | Company Registration Number: 17063286Registered Office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United KingdomContact: info@safiinternationalcapitalltd.siteصفحه اختصاصی بنیان‌گذار (/about/shaheen-safi):یک صفحه بیوگرافی شکیل و رسمی با عکس باکیفیت.ذکر سوابق تحصیلی در دانشگاه فنی استانبول (ITU)، مدرک تحلیلگری تکنیکال IFTA و پروژه‌های اجرا شده.لینک دادن مستقیم به پروفایل تد (TED)، ویکی‌دیتا و مقالات مدیوم.صفحه پورتفولیو و اکوسیستم (/portfolio یا /ecosystem):معرفی مستقیم ۶ پلتفرم اصلی به همراه لوگو و لینک فالو به دامنه‌های اصلی (safipay.net, safitopup.site, safiacademy.org, safiai.site, zevapp.com, safipro.site). این کار جریان اعتبار سئو (Link Equity) را بین تمام سایت‌های شما توزیع می‌کند.۴. پرامپت آماده برای ایجنت توسعه‌دهنده (AI Agent Master Prompt)این دستورالعمل را کپی کرده و به ایجنت هوش مصنوعی خود (Claude Code، Cursor، Copilot یا دستیار برنامه‌نویسی) بدهید تا مستقیماً روی ریپازیتوری safi-holding-web اعمال کند:Markdown### MASTER DIRECTIVE: HOLDING ENTITY KNOWLEDGE GRAPH & 5-PILLAR ARCHITECTURE (SEO, AEO, SXO, AIO, GEO)
+
+Target Repository: safi-holding-web
+Entity Subject: Safi International Capital LTD & Founder Shaheen Safi
+
+EXECUTE THE FOLLOWING ARCHITECTURAL UPGRADES:
+
+1. JSON-LD KNOWLEDGE GRAPH INJECTION:
+- Create a dedicated component `components/seo/HoldingSchema.tsx` and integrate it into the root Layout.
+- Inject a comprehensive Schema.org `@graph` containing:
+  - Corporation: Safi International Capital LTD
+    * CRN: 17063286 | DUNS: 234621356 | Tax ID: 85677 13611
+    * Registered Address: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, UK
+    * Wikidata @id: https://www.wikidata.org/wiki/Q139502306
+    * Sub-organizations: SafiPay, Safi TopUp, Safi Academy, Safi AI, Zev, SafiPro
+  - Person: Shaheen Safi
+    * Role: Founder, Director & Chief Visionary Architect
+    * Wikidata @id: https://www.wikidata.org/wiki/Q138427366
+    * AlumniOf: Istanbul Technical University (ITU)
+    * Credentials: CFTe (IFTA)
+    * SameAs array: Wikidata, TED Profile (https://www.ted.com/profiles/51476914), Medium profiles
+  - FAQPage: Definitive answers identifying the company and founder for conversational search bots.
+
+2. AEO & GEO CONVERSATIONAL BLOCKS:
+- In the hero and about sections, ensure concise 40-60 word definitive summary cards exist to serve as instant answers for LLM citation algorithms (Google AI Overviews, Perplexity).
+
+3. ENTERPRISE FOOTER & REGULATORY DISPLAY:
+- Update the global Footer component to strictly display official UK Companies House details:
+  "Safi International Capital LTD (CRN: 17063286) - 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, UK".
+
+4. SXO & PERFORMANCE PASS:
+- Optimize all imagery using priority loading and responsive srcset attributes.
+- Ensure strict zero Layout Shift (CLS = 0) and under 1.2s Largest Contentful Paint (LCP).
+
+5. ROBOTS & SITEMAP:
+- Configure robots.txt allowing full crawl rights to Googlebot, Bingbot, GPTBot, ClaudeBot, and PerplexityBot.
+- Generate dynamic sitemap.xml covering the root, about, portfolio, and founder leadership pages.
+
+VERIFY: Run the generated markup through the official Google Rich Results and Schema.org validators with zero warnings.
+با پیاده‌سازی این تغییرات، ساختار سایت هلدینگ به بالاترین استاندارد موتورهای جستجو ارتقا یافته و سریع‌ترین مسیر برای اتصال اطلاعات به Google Knowledge Graph فراهم خواهد شد.

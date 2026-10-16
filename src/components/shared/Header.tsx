@@ -248,6 +248,28 @@ export default function Header() {
             </Link>
 
             <Link
+              href="/about/shaheen-safi"
+              className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] rounded-full transition-all duration-300 ${
+                pathname === '/about/shaheen-safi'
+                  ? 'text-[#F9E79F] bg-[#D4AF37]/20 border border-[#D4AF37]/40 shadow-[0_0_15px_rgba(212,175,55,0.25)]'
+                  : 'text-[#A5A5B8] hover:text-white hover:bg-white/[0.06]'
+              }`}
+            >
+              Founder
+            </Link>
+
+            <Link
+              href="/portfolio"
+              className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] rounded-full transition-all duration-300 ${
+                pathname === '/portfolio'
+                  ? 'text-[#F9E79F] bg-[#D4AF37]/20 border border-[#D4AF37]/40 shadow-[0_0_15px_rgba(212,175,55,0.25)]'
+                  : 'text-[#A5A5B8] hover:text-white hover:bg-white/[0.06]'
+              }`}
+            >
+              Portfolio
+            </Link>
+
+            <Link
               href="/services"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] rounded-full transition-all duration-300 ${
                 pathname === '/services'
@@ -315,6 +337,8 @@ export default function Header() {
               <div className="space-y-1">
                 {[
                   { name: 'Home Portal', href: '/' },
+                  { name: 'Founder & Director (Shaheen Safi)', href: '/about/shaheen-safi' },
+                  { name: 'Venture Portfolio & Ecosystem', href: '/portfolio' },
                   { name: 'About & Leadership', href: '/about' },
                   { name: 'Global Infrastructure & Services', href: '/services' },
                   { name: 'Corporate Contact', href: '/contact' },

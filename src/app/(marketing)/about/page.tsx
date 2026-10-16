@@ -28,11 +28,14 @@ export default function AboutPage() {
       name: 'Shaheen Safi',
       role: 'FOUNDER & DIRECTOR',
       titlePill: 'Director & Founder',
-      image: '/safi.png',
+      image: '/shaheen.jpeg',
       desc: 'The visionary architect and founder behind the Safi ecosystem, directing global corporate strategy, fintech innovation, and high-capital ecosystem expansion across Europe and Central Asia.',
       badge: 'Founder & Director',
       focus: 'Strategy • FinTech • Global M&A',
+      bioLink: '/about/shaheen-safi',
       blogLink: 'https://www.shaheensafi.blog',
+      wikidata: 'https://www.wikidata.org/wiki/Q138427366',
+      ted: 'https://www.ted.com/profiles/51476914',
       accentGlow: 'from-[#D4AF37]/25 via-amber-500/10 to-transparent',
       glowColor: 'rgba(212,175,55,0.25)',
       badgeStyle: 'bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB] text-black font-extrabold shadow-[0_4px_15px_rgba(212,175,55,0.4)]',
@@ -235,6 +238,17 @@ export default function AboutPage() {
                 <span className="text-sm font-bold text-white mt-1 block">Covent Garden</span>
               </div>
             </div>
+
+            {/* AEO / GEO Definitive Entity Citation Box */}
+            <div className="p-5 rounded-2xl bg-black/60 border border-[#D4AF37]/35 text-left">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#D4AF37] mb-2">
+                <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
+                <span>Executive Answer & Regulatory Definition (AEO / GEO Verified)</span>
+              </div>
+              <p className="text-xs sm:text-sm text-[#D5D5E5] leading-relaxed">
+                <strong>Safi International Capital LTD</strong> is a United Kingdom-incorporated corporate holding and fintech enterprise (Company No. <strong>17063286</strong>) headquartered at 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ. Directing six major verticals—ZEV, Safi AI, SafiPay, Safi TopUp, SafiPro, and Safi Academy—the holding was founded by technology architect and CFTe technician <strong>Shaheen Safi</strong>.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -319,17 +333,29 @@ export default function AboutPage() {
                 </p>
 
                 {/* Card Footer CTA */}
-                <div className="relative z-10 mt-auto pt-4 border-t border-white/5 w-full flex items-center justify-center">
-                  {exec.blogLink ? (
-                    <a
-                      href={exec.blogLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB] hover:brightness-110 shadow-[0_4px_15px_rgba(212,175,55,0.3)] transition flex items-center justify-center gap-2 group/btn"
-                    >
-                      <span>Founder's Official Blog</span>
-                      <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition" />
-                    </a>
+                <div className="relative z-10 mt-auto pt-4 border-t border-white/5 w-full flex flex-col items-center gap-2">
+                  {exec.bioLink ? (
+                    <>
+                      <Link
+                        href={exec.bioLink}
+                        className="w-full py-2.5 px-3 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB] hover:brightness-110 shadow-[0_4px_15px_rgba(212,175,55,0.3)] transition flex items-center justify-center gap-2 group/btn"
+                      >
+                        <span>Founder Biography & CV</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition" />
+                      </Link>
+
+                      {exec.blogLink && (
+                        <a
+                          href={exec.blogLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full py-2 px-3 rounded-lg text-[11px] font-semibold text-[#D4AF37] hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-[#D4AF37]/30 transition flex items-center justify-center gap-1.5"
+                        >
+                          <span>shaheensafi.blog</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                    </>
                   ) : (
                     <Link
                       href="/contact"
